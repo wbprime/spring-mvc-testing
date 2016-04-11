@@ -6,11 +6,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.wbprime</groupId>
-    <artifactId>spring-mvc-unit-test-java</artifactId>
+    <artifactId>spring-mvc-controllers-unit-test-java</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-    <name>spring-mvc-unit-test-java Maven Webapp</name>
+    <name>spring-mvc-controllers-unit-test-java Maven Webapp</name>
     <url>http://www.wbprime.me</url>
 
     <properties>
@@ -29,7 +29,7 @@
     </properties>
 
     <build>
-        <finalName>spring-mvc-unit-test-java</finalName>
+        <finalName>spring-mvc-controllers-unit-test-java</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

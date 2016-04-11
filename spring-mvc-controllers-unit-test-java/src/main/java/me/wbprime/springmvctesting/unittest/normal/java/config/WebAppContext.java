@@ -23,9 +23,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {
-    "me.wbprime.springmvctesting.controllers"
-})
+@ComponentScan(basePackages = {"me.wbprime.springmvctesting.controllers" })
 public class WebAppContext extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
