@@ -14,7 +14,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
  * @author Elvis Wang [mail@wbprime.me]
  */
 @Configuration
-@ComponentScan(basePackages = {"me.wbprime.springmvctesting.services" })
+@ComponentScan(basePackages = {"me.wbprime.springmvctesting.common.services" })
 public class ServicesContext {
         private static final String MESSAGE_SOURCE_BASE_NAME = "i18n/messages";
 

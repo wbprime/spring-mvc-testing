@@ -1,11 +1,11 @@
 package me.wbprime.controllers;
 
 
+import me.wbprime.springmvctesting.common.services.TodoService;
 import org.mockito.Mockito;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import me.wbprime.springmvctesting.unittest.normal.java.services.TodoService;
 
 /**
  * Class: TestContent

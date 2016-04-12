@@ -23,7 +23,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"me.wbprime.springmvctesting.controllers" })
+@ComponentScan(basePackages = {"me.wbprime.springmvctesting.common.controllers" })
 public class WebAppContext extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
@@ -46,7 +46,7 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
         final Properties exceptionMappings = new Properties();
 
         exceptionMappings.put(
-            "me.wbprime.springmvctesting.exceptions.TodoNotFoundException",
+            "me.wbprime.springmvctesting.common.exceptions.TodoNotFoundException",
             "error/404"
         );
         exceptionMappings.put("java.lang.Exception", "error/error");

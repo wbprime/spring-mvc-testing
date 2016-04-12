@@ -1,7 +1,8 @@
 package me.wbprime.controllers;
 
 
-import me.wbprime.springmvctesting.unittest.normal.java.controllers.TodoController;
+import me.wbprime.springmvctesting.common.controllers.TodoController;
+import me.wbprime.springmvctesting.common.services.TodoService;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -16,7 +17,6 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
-import me.wbprime.springmvctesting.unittest.normal.java.services.TodoService;
 
 import java.util.Properties;
 

@@ -1,7 +1,10 @@
 package me.wbprime.springmvctesting.unittest.normal.java.config;
 
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 /**
  * Class: WebApp
@@ -9,22 +12,34 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  *
  * @author Elvis Wang [mail@wbprime.me]
  */
-public final class WebApp extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebApp extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] {
-            WebAppContext.class,
+        return new Class[] {
             ServicesContext.class
         };
     }
 
     @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class<?>[] {
+            WebAppContext.class
+        };
+
+    }
+
+    @Override
     protected String[] getServletMappings() {
-        return new String[0];
+        return new String[] {
+            "/"
+        };
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        final CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        return new Filter[] {characterEncodingFilter};
     }
 }
