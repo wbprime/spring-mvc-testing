@@ -16,7 +16,9 @@
         <springdata.jpa.version>1.10.0.RELEASE</springdata.jpa.version>
         <h2.version>1.4.191</h2.version>
         <druid.version>1.0.18</druid.version>
-        <hibernate.version>5.1.0.Final</hibernate.version>
+        <hibernate.orm.version>5.1.0.Final</hibernate.orm.version>
+        <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+        <jadira.version>5.0.0.GA</jadira.version>
         <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.1.7</logback.version>
         <guava.version>19.0</guava.version>
@@ -103,7 +105,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
+            <version>${hibernate.orm.version}</version>
             <!--<exclusions>-->
                 <!--<exclusion>-->
                     <!--<groupId>org.jboss.logging</groupId>-->
@@ -114,7 +116,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate.version}</version>
+            <version>${hibernate.orm.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -154,12 +156,12 @@
         <dependency>
             <groupId>org.jadira.usertype</groupId>
             <artifactId>usertype.spi</artifactId>
-            <version>3.0.0.CR3</version>
+            <version>${jadira.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jadira.usertype</groupId>
             <artifactId>usertype.core</artifactId>
-            <version>3.0.0.CR3</version>
+            <version>${jadira.version}</version>
         </dependency>
 
         <dependency>
@@ -169,17 +171,11 @@
         </dependency>
 
         <!-- Hibernate Validator -->
-        <!--<dependency>-->
-            <!--<groupId>org.hibernate</groupId>-->
-            <!--<artifactId>hibernate-validator</artifactId>-->
-            <!--<version>${hibernate.version}</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<groupId>org.jboss.logging</groupId>-->
-                    <!--<artifactId>jboss-logging</artifactId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.version}</version>
+        </dependency>
 
         <!-- test -->
         <dependency>

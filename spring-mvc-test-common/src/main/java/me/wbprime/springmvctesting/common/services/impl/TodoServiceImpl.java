@@ -1,8 +1,6 @@
 package me.wbprime.springmvctesting.common.services.impl;
 
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import me.wbprime.springmvctesting.common.dao.TodoDAO;
 import me.wbprime.springmvctesting.common.dto.TodoDTO;

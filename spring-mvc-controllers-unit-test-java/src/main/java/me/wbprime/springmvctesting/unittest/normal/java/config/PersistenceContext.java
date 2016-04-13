@@ -23,7 +23,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"me.wbprime.springmvctesting.common.services" })
+@EnableJpaRepositories(basePackages = {"me.wbprime.springmvctesting.common.dao" })
 public class PersistenceContext {
     protected static final String PROPERTY_NAME_DATABASE_DRIVER = "db.driver";
     protected static final String PROPERTY_NAME_DATABASE_PASSWORD = "db.password";
@@ -69,7 +69,7 @@ public class PersistenceContext {
 
         entityManagerFactoryBean.setDataSource(dataSource());
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setPackagesToScan(PROPERTY_PACKAGES_TO_SCAN);
+        entityManagerFactoryBean.setPackagesToScan("me.wbprime.springmvctesting.common.models");
 
         Properties jpaProperties = new Properties();
         jpaProperties.put(

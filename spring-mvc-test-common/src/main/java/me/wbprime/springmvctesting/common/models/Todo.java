@@ -1,6 +1,7 @@
 package me.wbprime.springmvctesting.common.models;
 
 
+import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import javax.persistence.Column;
@@ -30,12 +31,14 @@ public class Todo {
     private Long id;
 
     @Column(name = "create_time", nullable = false)
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime creationTime;
 
     @Column(name = "description", nullable = false, length = MAX_LENGTH_DESCRIPTION)
     private String description;
 
     @Column(name = "modification_time", nullable = false)
+    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime modificationTime;
 
     @Column(name = "title", nullable = false, length = MAX_LENGTH_TITLE)
