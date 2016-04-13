@@ -7,17 +7,15 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 import javax.servlet.Filter;
 
 /**
- * Class: WebApp
+ * Class: WebAppInitializer
  * Date: 2016/04/11 23:01
  *
  * @author Elvis Wang [mail@wbprime.me]
  */
-public class WebApp extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[] {
-            ServicesContext.class
-        };
+        return null;
     }
 
     @Override
