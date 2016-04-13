@@ -13,7 +13,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springframework.version>4.2.5.RELEASE</springframework.version>
-        <h2.version>1.3.172</h2.version>
+        <springdata.jpa.version>1.10.0.RELEASE</springdata.jpa.version>
+        <h2.version>1.4.191</h2.version>
+        <druid.version>1.0.18</druid.version>
         <hibernate.version>5.1.0.Final</hibernate.version>
         <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.1.7</logback.version>
@@ -74,11 +76,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${springframework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${springframework.version}</version>
         </dependency>
@@ -86,6 +83,53 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${springframework.version}</version>
+        </dependency>
+
+        <!-- H2 Database -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+
+        <!-- druid DataSource -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
+        <!-- Hibernate and Spring JPA support -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.jboss.logging</groupId>-->
+                    <!--<artifactId>jboss-logging</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${springdata.jpa.version}</version>
         </dependency>
 
         <!-- Logging -->
@@ -99,18 +143,25 @@
             <artifactId>jcl-over-slf4j</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${jodatime.version}</version>
         </dependency>
+
+        <!-- to use joda time with JPA -->
+        <dependency>
+            <groupId>org.jadira.usertype</groupId>
+            <artifactId>usertype.spi</artifactId>
+            <version>3.0.0.CR3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jadira.usertype</groupId>
+            <artifactId>usertype.core</artifactId>
+            <version>3.0.0.CR3</version>
+        </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -118,30 +169,17 @@
         </dependency>
 
         <!-- Hibernate Validator -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-
-        <!-- Hibernate -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.version}</version>
-        </dependency>
-
-        <!-- H2 Database -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-validator</artifactId>-->
+            <!--<version>${hibernate.version}</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.jboss.logging</groupId>-->
+                    <!--<artifactId>jboss-logging</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
 
         <!-- test -->
         <dependency>

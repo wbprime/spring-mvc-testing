@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 import java.util.List;
 import java.util.Locale;
 
@@ -43,8 +43,8 @@ public class TodoController {
 
     protected static final String PARAMETER_TODO_ID = "id";
 
-    protected static final String REQUEST_MAPPING_TODO_LIST = "/";
-    protected static final String REQUEST_MAPPING_TODO_VIEW = "/todo/{id}";
+    protected static final String REQUEST_MAPPING_TODO_LIST = "/todo/getAll";
+    protected static final String REQUEST_MAPPING_TODO_VIEW = "/todo/get/{id}";
 
     protected static final String VIEW_TODO_ADD = "todo/add";
     protected static final String VIEW_TODO_LIST = "todo/list";
@@ -76,7 +76,7 @@ public class TodoController {
 
     @RequestMapping(value = "/todo/add", method = RequestMethod.POST)
     public String add(
-        @Valid @ModelAttribute(MODEL_ATTRIBUTE_TODO) TodoDTO dto,
+        @ModelAttribute(MODEL_ATTRIBUTE_TODO) TodoDTO dto,
         final BindingResult result,
         final RedirectAttributes attributes
     ) {
@@ -156,7 +156,7 @@ public class TodoController {
 
     @RequestMapping(value = "/todo/update", method = RequestMethod.POST)
     public String update(
-        @Valid @ModelAttribute(MODEL_ATTRIBUTE_TODO) final TodoDTO dto,
+        @ModelAttribute(MODEL_ATTRIBUTE_TODO) final TodoDTO dto,
         final BindingResult result,
         final RedirectAttributes attributes
     ) throws TodoNotFoundException {

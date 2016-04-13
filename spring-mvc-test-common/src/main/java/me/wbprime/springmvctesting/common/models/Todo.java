@@ -1,7 +1,6 @@
 package me.wbprime.springmvctesting.common.models;
 
 
-import org.hibernate.annotations.Type;
 import org.joda.time.DateTime;
 
 import javax.persistence.Column;
@@ -21,7 +20,7 @@ import javax.persistence.Version;
  * @author Elvis Wang [mail@wbprime.me]
  */
 @Entity
-@Table(name="todos")
+@Table(name = "todos")
 public class Todo {
     public static final int MAX_LENGTH_DESCRIPTION = 50;
     public static final int MAX_LENGTH_TITLE       = 24;
@@ -30,15 +29,13 @@ public class Todo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "creation_time", nullable = false)
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+    @Column(name = "create_time", nullable = false)
     private DateTime creationTime;
 
-    @Column(name = "description", nullable = true, length = MAX_LENGTH_DESCRIPTION)
+    @Column(name = "description", nullable = false, length = MAX_LENGTH_DESCRIPTION)
     private String description;
 
     @Column(name = "modification_time", nullable = false)
-    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime modificationTime;
 
     @Column(name = "title", nullable = false, length = MAX_LENGTH_TITLE)

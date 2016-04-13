@@ -2,21 +2,15 @@ package me.wbprime.springmvctesting.common.dao;
 
 
 import me.wbprime.springmvctesting.common.models.Todo;
-
-import java.util.List;
+import org.springframework.data.repository.CrudRepository;
 
 /**
- * Interface: TodoDAO
- * Date: 2016/04/10 20:49
+ * Managed by Spring Data JPA framework
  *
- * @author Elvis Wang [mail@wbprime.me]
+ * Interface: TodoDAO
+ * Date: 2016/04/13 17:29
+ *
+ * @author Elvis Wang [bo.wang35@renren-inc.com]
  */
-public interface TodoDAO {
-    Todo save(Todo model);
-
-    void delete(final Todo deleted);
-
-    List<Todo> findAll();
-
-    Todo findOne(final Long id);
+public interface TodoDAO extends CrudRepository<Todo, Long> {
 }

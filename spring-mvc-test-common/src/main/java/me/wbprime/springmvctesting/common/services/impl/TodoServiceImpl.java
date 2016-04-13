@@ -1,17 +1,20 @@
 package me.wbprime.springmvctesting.common.services.impl;
 
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+import me.wbprime.springmvctesting.common.dao.TodoDAO;
 import me.wbprime.springmvctesting.common.dto.TodoDTO;
 import me.wbprime.springmvctesting.common.exceptions.TodoNotFoundException;
-import me.wbprime.springmvctesting.common.dao.TodoDAO;
 import me.wbprime.springmvctesting.common.models.Todo;
 import me.wbprime.springmvctesting.common.services.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,22 +27,20 @@ import java.util.List;
 public class TodoServiceImpl implements TodoService {
     private static final Logger logger = LoggerFactory.getLogger(TodoServiceImpl.class);
 
-//    @Autowired
-    private TodoDAO todoDao;
+    @Autowired
+    TodoDAO todoDAO;
 
-    @Transactional
     @Override
     public Todo add(TodoDTO added) {
         logger.debug("Adding a new to-do entry with information: {}", added);
 
-        Todo model = Todo.getBuilder(added.getTitle())
-                .description(added.getDescription())
-                .build();
+        final Todo model = Todo.getBuilder(added.getTitle())
+            .description(added.getDescription())
+            .build();
 
-        return todoDao.save(model);
+        return todoDAO.save(model);
     }
 
-    @Transactional(rollbackFor = {TodoNotFoundException.class})
     @Override
     public Todo deleteById(Long id) throws TodoNotFoundException {
         logger.debug("Deleting a to-do entry with id: {}", id);
@@ -47,33 +48,32 @@ public class TodoServiceImpl implements TodoService {
         Todo deleted = findById(id);
         logger.debug("Deleting to-do entry: {}", deleted);
 
-        todoDao.delete(deleted);
+        todoDAO.delete(deleted);
         return deleted;
     }
 
-    @Transactional(readOnly = true)
     @Override
     public List<Todo> findAll() {
         logger.debug("Finding all to-do entries");
-        return todoDao.findAll();
+
+        final Iterable<Todo> result = todoDAO.findAll();
+        return (null != result) ? Lists.newArrayList(result) : Collections.<Todo>emptyList();
     }
 
-    @Transactional(readOnly = true, rollbackFor = {TodoNotFoundException.class})
     @Override
     public Todo findById(Long id) throws TodoNotFoundException {
         logger.debug("Finding a to-do entry with id: {}", id);
 
-        Todo found = todoDao.findOne(id);
+        final Todo found = todoDAO.findOne(id);
         logger.debug("Found to-do entry: {}", found);
 
-        if (found == null) {
-            throw new TodoNotFoundException("No to-entry found with id: " + id);
+        if (null == found) {
+            throw new TodoNotFoundException("No todo-entry found with id: " + id);
         }
 
         return found;
     }
 
-    @Transactional(rollbackFor = {TodoNotFoundException.class})
     @Override
     public Todo update(TodoDTO updated) throws TodoNotFoundException {
         logger.debug("Updating contact with information: {}", updated);
