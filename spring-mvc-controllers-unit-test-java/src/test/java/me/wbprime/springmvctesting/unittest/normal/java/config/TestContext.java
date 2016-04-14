@@ -1,4 +1,4 @@
-package me.wbprime.controllers;
+package me.wbprime.springmvctesting.unittest.normal.java.config;
 
 
 import me.wbprime.springmvctesting.common.services.TodoService;
@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
 /**
- * Class: TestContent
+ * Class: TestContext
  * Date: 2016/04/10 12:33
  *
  * @author Elvis Wang [mail@wbprime.me]
  */
-public class TestContent {
+public class TestContext {
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
