@@ -30,10 +30,17 @@ import java.util.Locale;
 public class RestExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(RestExceptionHandler.class);
 
+    @Autowired
     private MessageSource messageSource;
 
-    @Autowired
-    public RestExceptionHandler(MessageSource messageSource) {
+    public RestExceptionHandler() {
+    }
+
+    public final MessageSource getMessageSource() {
+        return messageSource;
+    }
+
+    public final void setMessageSource(final MessageSource messageSource) {
         this.messageSource = messageSource;
     }
 
