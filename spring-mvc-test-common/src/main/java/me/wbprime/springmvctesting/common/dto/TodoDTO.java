@@ -1,9 +1,9 @@
 package me.wbprime.springmvctesting.common.dto;
 
 
-//import me.wbprime.springmvctesting.common.models.Todo;
-//import org.hibernate.validator.constraints.Length;
-//import org.hibernate.validator.constraints.NotEmpty;
+import me.wbprime.springmvctesting.common.models.Todo;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Class: TodoDTO
@@ -15,11 +15,11 @@ public class TodoDTO {
 
     private Long id;
 
-//    @Length(max = Todo.MAX_LENGTH_DESCRIPTION)
+    @Length(max = Todo.MAX_LENGTH_DESCRIPTION)
     private String description;
 
-//    @NotEmpty
-//    @Length(max = Todo.MAX_LENGTH_TITLE)
+    @NotEmpty
+    @Length(max = Todo.MAX_LENGTH_TITLE)
     private String title;
 
     public TodoDTO() {
